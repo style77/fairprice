@@ -5,8 +5,8 @@ from fairprice.strategy.currency import Currency
 
 
 class FairPrice(object):
-    def __init__(self, strategy: Type[Strategy]):
-        self.strategy = strategy()
+    def __init__(self, strategy: Type[Strategy], **kwargs):
+        self.strategy = strategy(**kwargs)
 
     def balance(self, price: float, currency: str):
         try:
