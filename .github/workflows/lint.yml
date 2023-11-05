@@ -17,3 +17,5 @@ jobs:
         run: python3 -m pip install -r requirements.txt
       - name: Run linter on package
         run: python -m flake8 .
+      - name: Run mypy on package
+        run: python -m mypy .
