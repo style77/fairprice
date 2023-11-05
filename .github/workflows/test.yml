@@ -7,6 +7,8 @@ jobs:
     name: Run all unit tests 🧪
     runs-on: ubuntu-latest
 
+    env:
+      FREECURRENCYAPI_KEY: ${{ secrets.FREECURRENCYAPI_KEY }}
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python
