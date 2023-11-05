@@ -1,0 +1,19 @@
+name: Test package
+
+on: push
+
+jobs:
+  test:
+    name: Run all unit tests 🧪
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+      - name: Install dependencies
+        run: python3 -m pip install -r requirements.txt
+      - name: Run unit tests 🧪
+        run: python -m unittest discover -s tests
