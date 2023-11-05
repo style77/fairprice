@@ -21,5 +21,6 @@ setup(
     license="MIT",
     packages=["fairprice"],
     install_requires=REQUIREMENTS,
-    python_requires=">=3.8",
+    python_requires=">=3.9",
+    include_package_data=True,
 )
