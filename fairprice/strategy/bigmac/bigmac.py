@@ -2,8 +2,9 @@
 # Big Macs in different countries. It is based on the theory of
 # purchasing-power parity (PPP) like all of the strategies included
 # I just thought it would be fun to include it in this library.
-import pandas as pd
 import pathlib
+
+import pandas as pd
 
 from fairprice.strategy.base import DataType, Strategy
 from fairprice.strategy.currency import Currency
@@ -13,7 +14,7 @@ from fairprice.strategy.currency import Currency
 # Feel free to contribute and update big mac prices in your country
 class BigMac(Strategy):
     DATA_TYPE = DataType.FILE
-    DATA = pathlib.Path(__file__).parent / "big_mac_index.csv"
+    DATA = (pathlib.Path(__file__).parent / "big_mac_index.csv").__str__()
 
     def calculate(self, price: float, currency: Currency):
         df = pd.read_csv(self.DATA)
