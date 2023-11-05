@@ -11,7 +11,7 @@ with (cur / "requirements.txt").open() as f:
 
 setup(
     name="fairprice",
-    version="0.1.0",
+    version="0.1.1",
     description="Balance the price of your products",
     long_description=README,
     long_description_content_type="text/markdown",
