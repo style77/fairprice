@@ -11,7 +11,7 @@ class FairPrice(object):
     def balance(self, price: float, currency: str):
         try:
             currency_obj = Currency(currency.strip().lower())
-        except:
+        except Exception:
             raise ValueError(f"No such currency as {currency}")
 
         return self.strategy.calculate(price, currency_obj)

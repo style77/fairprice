@@ -1,1 +1,1 @@
-from .bigmac.bigmac import BigMac
+from .bigmac.bigmac import BigMac  # noqa: F401

@@ -1,7 +1,6 @@
-# BigMac Inde is a strategy invented by The Economist to compare prices of Big Macs in different countries.
-# It is based on the theory of purchasing-power parity (PPP) like all of the strategies included in this library,
-# the notion that in the long run exchange rates should move towards the rate that would equalise the prices of 
-# an identical basket of goods and services (in this case, a burger) in any two countries.
+# BigMac Inde is a strategy invented by The Economist to compare prices of
+# Big Macs in different countries. It is based on the theory of
+# purchasing-power parity (PPP) like all of the strategies included
 # I just thought it would be fun to include it in this library.
 import pandas as pd
 
@@ -24,6 +23,7 @@ class BigMac(Strategy):
         ]
 
         big_mac_idx = (
-            latest_data["local_price"].values[0] / latest_data["dollar_price"].values[0]
+            latest_data["local_price"].values[0] /
+            latest_data["dollar_price"].values[0]
         )
         return big_mac_idx * price

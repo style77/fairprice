@@ -10,8 +10,8 @@ with (cur / "requirements.txt").open() as f:
     REQUIREMENTS = f.read().splitlines()
 
 setup(
-    name='fairprice',
-    version='0.1.0',
+    name="fairprice",
+    version="0.1.0",
     description="Balance the price of your products",
     long_description=README,
     long_description_content_type="text/markdown",
@@ -19,7 +19,7 @@ setup(
     author="Joachim Hodana",
     author_email="stylek777@gmail.com",
     license="MIT",
-    packages=['fairprice'],
+    packages=["fairprice"],
     install_requires=REQUIREMENTS,
-    python_requires='>=3.8',
+    python_requires=">=3.8",
 )

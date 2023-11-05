@@ -1,1 +1,1 @@
-from .fairprice import FairPrice
+from .fairprice import FairPrice  # noqa: F401
