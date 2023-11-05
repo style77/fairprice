@@ -4,7 +4,7 @@ from setuptools import setup
 
 cur = pathlib.Path(__file__).parent
 
-README = (cur / "README.txt").read_text()
+README = (cur / "README.md").read_text()
 
 with (cur / "requirements.txt").open() as f:
     REQUIREMENTS = f.read().splitlines()
