@@ -1,6 +1,8 @@
+import typing
+
 import httpx
 
-from fairprice.strategy.base import DataType, Strategy
+from fairprice.strategy.base import DataType, Price, Strategy
 from fairprice.strategy.currency import Currency
 
 
@@ -25,5 +27,9 @@ class FixedPrice(Strategy):
         )
         return response.json()["data"][currency.value.upper()]
 
-    def calculate(self, price: float, currency: Currency):
-        return price * self.__get_fixed_rate(currency)
+    def calculate(self, price: float, currency: typing.Optional[Currency]):
+        if not currency:
+            raise ValueError("Currency not specified")
+
+        value = price * self.__get_fixed_rate(currency)
+        return Price(value, currency)

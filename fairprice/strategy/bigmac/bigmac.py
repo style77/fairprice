@@ -3,10 +3,11 @@
 # purchasing-power parity (PPP) like all of the strategies included
 # I just thought it would be fun to include it in this library.
 import pathlib
+import typing
 
 import pandas as pd
 
-from fairprice.strategy.base import DataType, Strategy
+from fairprice.strategy.base import DataType, Price, Strategy
 from fairprice.strategy.currency import Currency
 
 
@@ -16,7 +17,10 @@ class BigMac(Strategy):
     DATA_TYPE = DataType.FILE
     DATA = (pathlib.Path(__file__).parent / "big_mac_index.csv").__str__()
 
-    def calculate(self, price: float, currency: Currency):
+    def calculate(self, price: float, currency: typing.Optional[Currency]) -> Price:
+        if not currency:
+            raise ValueError("Currency not specified")
+
         df = pd.read_csv(self.DATA)
         df["date"] = pd.to_datetime(df["date"])
         latest_data = df[df["date"] == df["date"].max()]
@@ -25,7 +29,7 @@ class BigMac(Strategy):
         ]
 
         big_mac_idx = (
-            latest_data["local_price"].values[0] /
-            latest_data["dollar_price"].values[0]
+            latest_data["local_price"].values[0] / latest_data["dollar_price"].values[0]
         )
-        return big_mac_idx * price
+        value = big_mac_idx * price
+        return Price(value, currency)
