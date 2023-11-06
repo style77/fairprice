@@ -5,7 +5,7 @@
 [![PyPI](https://img.shields.io/pypi/v/fairprice.svg)](https://pypi.org/project/fairprice/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Python module for balancing product prices. It takes USD price and uses various strategies of your choice to calculate the price in other currencies.
+Python module for balancing product prices. It takes USD price and uses various strategies of your choice to calculate fair price in other currencies.
 
 ## Installation
 
