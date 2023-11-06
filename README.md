@@ -20,9 +20,10 @@ pip install fairprice
 ```python
 from fairprice import FairPrice
 from fairprice.strategy import BigMac
+from fairprice.currency import Currency
 
 fp = FairPrice(strategy=BigMac)
-fp.calculate(10, "PLN")
+fp.calculate(10, Currency.PLN)
 ```
 
 ## Development setup
