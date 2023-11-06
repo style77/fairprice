@@ -1,17 +1,11 @@
 from typing import Type
 
-from fairprice.strategy.base import Strategy
-from fairprice.strategy.currency import Currency
+from fairprice.strategy.base import Price, Strategy
 
 
-class FairPrice(object):
+class FairPrice:
     def __init__(self, strategy: Type[Strategy], **kwargs):
         self.strategy = strategy(**kwargs)
 
-    def balance(self, price: float, currency: str):
-        try:
-            currency_obj = Currency(currency.strip().lower())
-        except Exception:
-            raise ValueError(f"No such currency as {currency}")
-
-        return self.strategy.calculate(price, currency_obj)
+    def balance(self, *args, **kwargs) -> Price:
+        return self.strategy.calculate(*args, **kwargs)
