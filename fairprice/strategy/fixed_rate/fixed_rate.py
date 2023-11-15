@@ -11,10 +11,10 @@ class FixedPrice(Strategy):
     DATA = "https://api.freecurrencyapi.com/v1/latest"
 
     def __init__(self, **kwargs):
-        freecurrency_key = kwargs.get("freecurrency_key")
-        if not freecurrency_key:
+        if freecurrency_key := kwargs.get("freecurrency_key"):
+            self.api_key = freecurrency_key
+        else:
             raise ValueError("API key is required")
-        self.api_key = freecurrency_key
 
     def __get_fixed_rate(self, currency: Currency):
         response = httpx.get(

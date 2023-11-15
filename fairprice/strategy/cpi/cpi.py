@@ -16,10 +16,10 @@ class CPI(Strategy):
 
     def __init__(self, **kwargs):
         self.api_key = kwargs.get("freecurrencyapi_key", None)
-        country = kwargs.get("country", None)
-        if not country:
+        if country := kwargs.get("country", None):
+            self.country = Country(country)
+        else:
             raise ValueError("Country not specified")
-        self.country = Country(country)
 
     def __get_fixed_rate(self, currency: Currency):
         if currency == Currency.USD:
